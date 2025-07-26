@@ -81,7 +81,7 @@ def main():
         model = train_model(X_train, y_train, model_params)
 
         # Save the trained model
-        save_model(model, 'model.pkl')
+        save_model(model, 'models/model.pkl')
 
         logger.info("Model training pipeline completed successfully.")
 

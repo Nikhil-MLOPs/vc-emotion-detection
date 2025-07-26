@@ -19,7 +19,7 @@ if not logger.handlers:
     logger.addHandler(console_handler)
 
 # -------------------- Helper Functions --------------------
-def load_model(model_path='model.pkl'):
+def load_model(model_path='model/model.pkl'):
     try:
         with open(model_path, 'rb') as file:
             model = pickle.load(file)
@@ -66,7 +66,7 @@ def evaluate_model(model, X, y):
         logger.error("Failed to evaluate the model.", exc_info=True)
         raise
 
-def save_metrics(metrics, path='metrics.json'):
+def save_metrics(metrics, path='reports/metrics.json'):
     try:
         with open(path, 'w') as file:
             json.dump(metrics, file, indent=4)
@@ -92,7 +92,7 @@ def main():
         metrics = evaluate_model(model, X_test, y_test)
 
         # Save metrics
-        save_metrics(metrics, 'metrics.json')
+        save_metrics(metrics, 'reports/metrics.json')
 
         logger.info("Model evaluation pipeline completed successfully.")
 
